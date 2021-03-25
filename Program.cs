@@ -13,7 +13,7 @@ namespace week4
             //   for multiples of five, print Buzz (instead of the number)
             //   for multiples of both three and five, print FizzBuzz (instead of the number)
             
-            Console.WriteLine("FizzBuzz");
+            Console.WriteLine("FizzBuzz Assessment Task:");
             for(int i = 0; i < 100; i++){
                 if ((i+1)%3==0){
                     if ((i+1)%5==0){
@@ -39,7 +39,7 @@ namespace week4
             // - Psuedo Algorithm or Flowchart
             // - dotnet console app (i.e code)
             // - Screenshot of output (at least the last 15 lines)
-
+            
             //in class tasks
             /*
             // for loops are great for counting
@@ -89,19 +89,27 @@ namespace week4
             }
             //Task 4 A program that asks the user to enter a number. The program then counts from 0 to that number.
             int intNumberInput;
-            Console.Write("Please enter a number: ");
+            Console.Write("Please enter a whole number: ");
             string NumberInput = Console.ReadLine();
             while(!int.TryParse(NumberInput, out intNumberInput))
             {
-                Console.Write("Sorry, I didn't understand that, please enter number as a numeral: ");
+                Console.Write("Sorry, I didn't understand that, please enter whole number as a numeral: ");
                 NumberInput = Console.ReadLine();
             }
             int k = 0;
-            while(k<=intNumberInput){
-                Console.Write(k+", ");
-                k++;
+            Console.Write("0");
+            while(k!=intNumberInput){
+                Console.Write(", ");
+                if(intNumberInput>0){
+                    k++;
+                } else {
+                    k--;
+                }
+                Console.Write(k);
             }
-            Console.WriteLine("loop finished");
+            // Console.WriteLine("done!");
+
+            
 
             // task 5 A program that asks the user "What happens when you throw a yellow rock in the red sea?". The user must guess the correct answer, "It gets wet". If the correct answer isn't entered the program asks again.
 
@@ -134,7 +142,7 @@ namespace week4
                 while(!int.TryParse(guess, out intGuess))
                 {
                     Console.Write("sorry, I didn't understand that, please enter number as a numeral: ");
-                    NumberInput = Console.ReadLine();
+                    guess = Console.ReadLine();
                 }
                 //check for correct guess
                 if(intGuess==num){
@@ -145,15 +153,55 @@ namespace week4
                     if(l<10){
                         // to get the correct grammar on "guesses/guess"
                         if(l<9){
-                            Console.WriteLine("sorry, not it, try again, "+(10-l)+" guesses remaining");
+                            Console.WriteLine((10-l)+" guesses remaining");
                         } else {
-                            Console.WriteLine("sorry, not it, try again, "+(10-l)+" guess remaining");
+                            Console.WriteLine((10-l)+" guess remaining");
                         }
                     } else {
                         Console.WriteLine("the secret number was "+num);
                     }
                 }
             }
+            
+            // generate random number
+            var random2 = new Random();
+            int num2 = random.Next(1,1000);
+            // (so it's possible to guess the right number for testing)
+            Console.WriteLine(num2);
+
+            // initate guess vars
+            string guess2;
+            int intGuess2 = -1;
+
+            // initate loop
+            int guessNumber = 0;
+            while(guessNumber<10 && intGuess2!=num2){
+                // tell user how many guesses left
+                if(guessNumber<10){
+                    // to get the correct grammar on "guesses/guess"
+                    if(guessNumber<9){
+                        Console.WriteLine((10-guessNumber)+" guesses remaining");
+                    } else {
+                        Console.WriteLine((10-guessNumber)+" guess remaining");
+                    }
+                }
+                Console.Write("what's the secret number? ");
+                guess2 = Console.ReadLine();
+                //validate input
+                while(!int.TryParse(guess2, out intGuess2))
+                {
+                    Console.Write("sorry, I didn't understand that, please enter number as a numeral: ");
+                    guess2 = Console.ReadLine();
+                }
+                guessNumber++;
+                }
+            if(intGuess2==num2){
+                Console.WriteLine("You guessed the number!");
+            } else {
+                Console.WriteLine("the secret number was "+num2);
+            }
+
+            
             */
         }
     }
